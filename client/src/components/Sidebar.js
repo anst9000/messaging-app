@@ -29,7 +29,7 @@ export default function Sidebar({ id }) {
             <Nav.Link eventKey={CONTACTS_KEY}>Contacts</Nav.Link>
           </Nav.Item>
         </Nav>
-        <Tab.Content className="border-end overflow-auto flex-grow-1">
+        <Tab.Content className="border-end overflow-auto flex-grow-1" style={{ backgroundColor: 'lightgrey' }}>
           <Tab.Pane eventKey={CONVERSATIONS_KEY}>
             <Conversations />
           </Tab.Pane>

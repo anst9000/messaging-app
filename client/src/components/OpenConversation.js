@@ -9,6 +9,7 @@ export default function OpenConversation() {
       node.scrollIntoView({ smooth: true })
     }
   }, [])
+
   const { sendMessage, selectedConversation } = useConversations()
 
   function handleSubmit(e) {
@@ -45,6 +46,7 @@ export default function OpenConversation() {
           })}
         </div>
       </div>
+
       <Form onSubmit={handleSubmit}>
         <Form.Group className="m-2">
           <InputGroup>
@@ -55,9 +57,11 @@ export default function OpenConversation() {
               onChange={e => setText(e.target.value)}
               style={{ height: '75px', resize: 'none' }}
             />
-            <InputGroup.Append>
               <Button type="submit">Send</Button>
+      {/*
+            <InputGroup.Append>
             </InputGroup.Append>
+      */}
           </InputGroup>
         </Form.Group>
       </Form>

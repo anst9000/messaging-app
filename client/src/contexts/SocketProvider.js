@@ -11,10 +11,17 @@ export function SocketProvider({ id, children }) {
   const [socket, setSocket] = useState()
 
   useEffect(() => {
-    const newSocket = io(
-      'http://localhost:5000',
-      { query: { id } }
-    )
+    var connectionOptions =  {
+      query: {
+        id
+      },
+      "force new connection" : true,
+      "reconnectionAttempts": "Infinity",
+      "timeout" : 10000,
+      "transports" : ["websocket"]
+    };
+
+    const newSocket = io.connect('http://localhost:5000',connectionOptions);
     setSocket(newSocket)
 
     return () => newSocket.close()
@@ -26,3 +33,4 @@ export function SocketProvider({ id, children }) {
     </SocketContext.Provider>
   )
 }
+

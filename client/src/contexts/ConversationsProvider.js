@@ -67,6 +67,7 @@ export function ConversationsProvider({ id, children }) {
       const contact = contacts.find(contact => {
         return contact.id === recipient
       })
+
       const name = (contact && contact.name) || recipient
       return { id: recipient, name }
     })
@@ -75,6 +76,7 @@ export function ConversationsProvider({ id, children }) {
       const contact = contacts.find(contact => {
         return contact.id === message.sender
       })
+
       const name = (contact && contact.name) || message.sender
       const fromMe = id === message.sender
       return { ...message, senderName: name, fromMe }
